@@ -10,6 +10,9 @@
                     <Setter Property="Margin" Value="30" />
                     <Setter Property="Padding" Value="20" />
                     <Setter Property="Background" Value="Coral" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="Height" Value="185" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
                 </Style>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="20" />
@@ -38,8 +41,8 @@
                     Grid.Column="0"
                     Content="Krakatua"
                     Command="{Binding SelectAttractionCommand}" />
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="1" 
+            <TextBlock Grid.RowSpan="2"
+                       Grid.Column="1"
                        Text="{Binding SelectedAttraction.Script}" />
             <Label Grid.Row="1" 
                    Grid.Column="1" 

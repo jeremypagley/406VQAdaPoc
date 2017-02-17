@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Speech.Synthesis;
 
 namespace _406VQAdaPoc.ViewModel
 {
@@ -48,7 +49,19 @@ namespace _406VQAdaPoc.ViewModel
                 selectedAttraction = attractionOne;
             }
 
+            ReadScript();
+
             this.RaisePropertyChanged(() => this.SelectedAttraction);
+        }
+
+        private void ReadScript()
+        {
+            SpeechSynthesizer speechSynth = new SpeechSynthesizer();
+
+            if (selectedAttraction != null)
+            {
+                speechSynth.SpeakAsync(selectedAttraction.Script);
+            }
         }
 
     }
