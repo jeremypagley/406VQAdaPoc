@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Speech.Synthesis;
 using _406VQAdaPoc.Krakatua.ViewModels;
 using _406VQAdaPoc.Honu.ViewModels;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace _406VQAdaPoc.ViewModel
 {
@@ -46,6 +47,9 @@ namespace _406VQAdaPoc.ViewModel
         private void ExecuteKrakatuaViewCommand()
         {
             CurrentViewModel = MainViewModel._krakatuaViewModel;
+
+            var msg = new SelectAttraction() { AttractionType = "krakatau" };
+            Messenger.Default.Send<SelectAttraction>(msg);
         }
 
         private void ExecuteHonuViewCommand()

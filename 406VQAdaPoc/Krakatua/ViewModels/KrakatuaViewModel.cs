@@ -4,55 +4,31 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Speech.Synthesis;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace _406VQAdaPoc.Krakatua.ViewModels
 {
     public class KrakatuaViewModel : ViewModelBase
     {
-        /*private ObservableCollection<Attraction> attractions;
+        private ObservableCollection<Attraction> attractions;
         private Attraction selectedAttraction;
 
         public KrakatuaViewModel()
         {
-            SelectAttractionCommand = new RelayCommand(SelectAttractionMethod);
-        }
-
-        public ICommand SelectAttractionCommand { get; private set; }
-
-        public Attraction SelectedAttraction
-        {
-            get
-            {
-                return selectedAttraction;
-            }
-            set
-            {
-                selectedAttraction = value;
-                RaisePropertyChanged("SelectedAttraction");
-            }
+            Messenger.Default.Register<SelectAttraction>(this, (action) => SelectAttractionMethod());
         }
 
         private void SelectAttractionMethod()
         {
             attractions = Attraction.GetSampleAttractions();
-
-            // Should be handled differently but this is just a POC
-            // TODO: Make this actually work with the right attractions
+            
+            //TODO: Use message from the messenger here to select proper attraction
             var attractionOne = attractions[0];
-            var attractionTwo = attractions[1];
 
-            if (selectedAttraction != null)
-            {
-                selectedAttraction = (selectedAttraction.ID.Equals(attractionOne.ID)) ? attractionTwo : attractionOne;
-            }
-            else
-            {
-                selectedAttraction = attractionOne;
-            }
+            selectedAttraction = attractionOne;
 
             ReadScript();
 
-            this.RaisePropertyChanged(() => this.SelectedAttraction);
         }
 
         private void ReadScript()
@@ -63,6 +39,6 @@ namespace _406VQAdaPoc.Krakatua.ViewModels
             {
                 speechSynth.SpeakAsync(selectedAttraction.Script);
             }
-        }*/
+        }
     }
 }
