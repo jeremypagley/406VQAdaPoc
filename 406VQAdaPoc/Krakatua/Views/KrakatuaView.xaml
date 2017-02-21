@@ -4,9 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="593">
     <Grid>
-        <Label Content="Krakatua View" FontSize="30" />
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="205" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        
+        <Image Height="130"
+               Width="240"
+               Opacity="0.8"
+               Grid.Row="0"
+               Stretch="Fill"
+               VerticalAlignment="Top" 
+               Name="KrakatauLogo"
+               Source="/406VQAdaPoc;component/Assets/Graphics/logo_krakatau.png" />
+        
+        <Label HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Content="KRAKATAU AQUA COASTER"
+               Grid.Row="1" />
+        <TextBlock Grid.Row="1"
+                   Foreground="White"
+                   Margin="0,40,0,0"
+                   Width="280"
+                   Padding="20"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="ljslfjsdj sfjs dfjsd f" />
 
+        <Label Content="Your return time is:"
+               Grid.Row="2"
+               FontSize="16"
+               VerticalAlignment="Top" />
+        <Label Content="70 minutes"
+               Grid.Row="2"
+               FontSize="54"
+               VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>
