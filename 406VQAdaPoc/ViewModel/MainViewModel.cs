@@ -4,65 +4,53 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Speech.Synthesis;
+using _406VQAdaPoc.Krakatua.ViewModels;
+using _406VQAdaPoc.Honu.ViewModels;
 
 namespace _406VQAdaPoc.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private ObservableCollection<Attraction> attractions;
-        private Attraction selectedAttraction;
+        private ViewModelBase _currentViewModel;
 
-        public MainViewModel()
-        {
-            SelectAttractionCommand = new RelayCommand(SelectAttractionMethod);
-        }
+        readonly static KrakatuaViewModel _krakatuaViewModel = new KrakatuaViewModel();
+        readonly static HonuViewModel _honuViewModel = new HonuViewModel();
 
-        public ICommand SelectAttractionCommand { get; private set; }
-
-        public Attraction SelectedAttraction
+        public ViewModelBase CurrentViewModel
         {
             get
             {
-                return selectedAttraction;
+                return _currentViewModel;
             }
             set
             {
-                selectedAttraction = value;
-                RaisePropertyChanged("SelectedAttraction");
+                if (_currentViewModel == value)
+                {
+                    return;
+                }
+                _currentViewModel = value;
+                RaisePropertyChanged("CurrentViewModel");
             }
         }
 
-        private void SelectAttractionMethod()
+        public ICommand KrakatuaViewCommand { get; private set; }
+        public ICommand HonuViewCommand { get; private set; }
+
+        public MainViewModel()
         {
-            attractions = Attraction.GetSampleAttractions();
-
-            // Should be handled differently but this is just a POC
-            var attractionOne = attractions[0];
-            var attractionTwo = attractions[1];
-
-            if (selectedAttraction != null)
-            {
-                selectedAttraction = (selectedAttraction.ID.Equals(attractionOne.ID)) ? attractionTwo : attractionOne;
-            }
-            else
-            {
-                selectedAttraction = attractionOne;
-            }
-
-            ReadScript();
-
-            this.RaisePropertyChanged(() => this.SelectedAttraction);
+            CurrentViewModel = MainViewModel._krakatuaViewModel;
+            KrakatuaViewCommand = new RelayCommand(() => ExecuteKrakatuaViewCommand());
+            HonuViewCommand = new RelayCommand(() => ExecuteHonuViewCommand());
         }
 
-        private void ReadScript()
+        private void ExecuteKrakatuaViewCommand()
         {
-            SpeechSynthesizer speechSynth = new SpeechSynthesizer();
-
-            if (selectedAttraction != null)
-            {
-                speechSynth.SpeakAsync(selectedAttraction.Script);
-            }
+            CurrentViewModel = MainViewModel._krakatuaViewModel;
         }
 
+        private void ExecuteHonuViewCommand()
+        {
+            CurrentViewModel = MainViewModel._honuViewModel;
+        }
     }
 }
