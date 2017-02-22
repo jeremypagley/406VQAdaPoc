@@ -1,52 +1,62 @@
 ﻿<Window x:Class="_406VQAdaPoc.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <DockPanel LastChildFill="True" DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
-        <Grid>
-            <Grid.Resources>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Width" Value="300" />
-                    <Setter Property="Margin" Value="30" />
-                    <Setter Property="Padding" Value="20" />
-                    <Setter Property="Background" Value="Coral" />
-                    <Setter Property="TextWrapping" Value="Wrap" />
-                    <Setter Property="Height" Value="185" />
-                    <Setter Property="VerticalAlignment" Value="Top" />
-                </Style>
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="FontSize" Value="20" />
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="HorizontalAlignment" Value="Center" />
-                </Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="LightCoral" />
-                    <Setter Property="Margin" Value="15" />
-                </Style>
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            
-            <Button Grid.Row="0"
-                    Grid.Column="0"
-                    Content="Honu"
-                    Command="{Binding SelectAttractionCommand}" />
-            <Button Grid.Row="1"
-                    Grid.Column="0"
-                    Content="Krakatua"
-                    Command="{Binding SelectAttractionCommand}" />
-            <TextBlock Grid.RowSpan="2"
-                       Grid.Column="1"
-                       Text="{Binding SelectedAttraction.Script}" />
-            <Label Grid.Row="1" 
-                   Grid.Column="1" 
-                   Content="{Binding SelectedAttraction.ReturnTime}" />
-        </Grid>
-    </DockPanel>
+        Title="MainWindow" Height="720" Width="600" WindowStartupLocation="CenterScreen"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+    <Window.Background>
+        <ImageBrush ImageSource="Assets/Graphics/Wood_Background.png" />
+    </Window.Background>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="LightCoral" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Width" Value="220" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Canvas>
+            <Image Height="720"
+                   Width="593"
+                   Stretch="Fill"
+                   VerticalAlignment="Bottom" 
+                   Name="BottomBar"
+                   Canvas.Top="200"
+                   Source="Assets/Graphics/Content_Background.png" />
+
+            <Image Height="162"
+                   Width="593"
+                   Stretch="Fill"
+                   VerticalAlignment="Top"
+                   Canvas.Bottom="35"
+                   Name="TopBar"
+                   Source="Assets/Graphics/Wood_Header_Background.png" />
+        </Canvas>
+
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Content="Honu"
+                Command="{Binding HonuViewCommand}" />
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Content="Krakatua"
+                Command="{Binding KrakatuaViewCommand}" />
+
+        <ContentControl Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Content="{Binding CurrentViewModel}" />
+
+    </Grid>
 </Window>

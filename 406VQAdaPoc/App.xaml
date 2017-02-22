@@ -1,7 +1,24 @@
-<Application x:Class="_406VQAdaPoc.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+﻿<Application x:Class="_406VQAdaPoc.App" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             StartupUri="MainWindow.xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:kvm="clr-namespace:_406VQAdaPoc.Krakatua.ViewModels"
+             xmlns:hvm="clr-namespace:_406VQAdaPoc.Honu.ViewModels"
+             xmlns:kview="clr-namespace:_406VQAdaPoc.Krakatua.Views"
+             xmlns:hview="clr-namespace:_406VQAdaPoc.Honu.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d1p1:Ignorable="d"
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
   <Application.Resources>
     <ResourceDictionary>
       <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:_406VQAdaPoc.ViewModel" />
+            <DataTemplate DataType="{x:Type hvm:HonuViewModel}">
+                <hview:HonuView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type kvm:KrakatuaViewModel}">
+                <kview:KrakatuaView />
+            </DataTemplate>
     </ResourceDictionary>
   </Application.Resources>
 </Application>
