@@ -40,13 +40,14 @@
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="ljslfjsdj sfjs dfjsd f" />
+                   Text="{Binding SelectedAttraction.Script}" />
 
         <Label Content="Your return time is:"
                Grid.Row="2"
                FontSize="16"
                VerticalAlignment="Top" />
-        <Label Content="70 minutes"
+        <Label Content="{Binding SelectedAttraction.ReturnTime}"
+               ContentStringFormat="{}{0} minutes"
                Grid.Row="2"
                FontSize="54"
                VerticalAlignment="Bottom" />

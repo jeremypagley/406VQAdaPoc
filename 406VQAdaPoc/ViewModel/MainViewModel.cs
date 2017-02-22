@@ -52,22 +52,20 @@ namespace _406VQAdaPoc.ViewModel
             HonuViewCommand = new RelayCommand(() => ExecuteHonuViewCommand());
         }
 
-
-
         private void ExecuteKrakatuaViewCommand()
         {
             CurrentViewModel = MainViewModel._krakatuaViewModel;
 
-            var msg = new SelectAttraction() { ID = Properties.Resources.Krakatau };
-            Messenger.Default.Send<SelectAttraction>(msg);
+            var attraction = new SelectAttraction() { ID = Properties.Resources.Krakatau };
+            Messenger.Default.Send<SelectAttraction>(attraction);
         }
 
         private void ExecuteHonuViewCommand()
         {
             CurrentViewModel = MainViewModel._honuViewModel;
 
-            var msg = new SelectAttraction() { ID = Properties.Resources.Honu };
-            Messenger.Default.Send<SelectAttraction>(msg);
+            var attraction = new SelectAttraction() { ID = Properties.Resources.Honu };
+            Messenger.Default.Send<SelectAttraction>(attraction);
         }
     }
 }

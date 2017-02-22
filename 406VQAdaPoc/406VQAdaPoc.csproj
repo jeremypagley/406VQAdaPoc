@@ -83,6 +83,7 @@
       <DependentUpon>KrakatuaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Attraction.cs" />
+    <Compile Include="ReadScript.cs" />
     <Compile Include="SelectAttraction.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
