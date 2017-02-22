@@ -8,6 +8,6 @@ namespace _406VQAdaPoc
 {
     public class SelectAttraction
     {
-        public string AttractionType { get; set; }
+        public string ID { get; set; }
     }
 }

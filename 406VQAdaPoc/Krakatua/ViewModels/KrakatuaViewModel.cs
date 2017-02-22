@@ -10,22 +10,19 @@ namespace _406VQAdaPoc.Krakatua.ViewModels
 {
     public class KrakatuaViewModel : ViewModelBase
     {
-        private ObservableCollection<Attraction> attractions;
+        private Attraction attraction;
         private Attraction selectedAttraction;
 
         public KrakatuaViewModel()
         {
-            Messenger.Default.Register<SelectAttraction>(this, (action) => SelectAttractionMethod());
+            Messenger.Default.Register<SelectAttraction>(this, SelectAttractionMethod);
         }
 
-        private void SelectAttractionMethod()
+        private void SelectAttractionMethod(SelectAttraction msg)
         {
-            attractions = Attraction.GetSampleAttractions();
-            
-            //TODO: Use message from the messenger here to select proper attraction
-            var attractionOne = attractions[0];
+            var ID = msg.ID;
 
-            selectedAttraction = attractionOne;
+            selectedAttraction = Attraction.GetSampleAttraction(ID);
 
             ReadScript();
 
