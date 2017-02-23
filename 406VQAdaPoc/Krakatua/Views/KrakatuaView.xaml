@@ -8,42 +8,51 @@
     <Grid>
         <Grid.Resources>
             <Style TargetType="{x:Type Label}">
-                <Setter Property="FontSize" Value="30" />
+                <Setter Property="FontFamily" Value="/406VQAdaPoc;component/Assets/Fonts/#Skranji" />
                 <Setter Property="Foreground" Value="White" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
             </Style>
+            <Style TargetType="{x:Type Image}">
+                <Setter Property="Opacity" Value="0.8" />
+            </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70" />
-            <RowDefinition Height="205" />
-            <RowDefinition Height="35" />
+            <RowDefinition Height="65" />
+            <RowDefinition Height="230" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         
-        <Image Height="130"
-               Width="240"
-               Opacity="0.8"
+        <Image Height="115"
+               Width="220"
                Grid.Row="0"
-               Margin="5,-15,5,5"
+               Margin="0,-20,0,0"
                Stretch="Fill"
                VerticalAlignment="Top" 
-               Name="KrakatauLogo"
                Source="/406VQAdaPoc;component/Assets/Graphics/logo_krakatau.png" />
         
-        <Label HorizontalAlignment="Center"
-               VerticalAlignment="Top"
+        <Label VerticalAlignment="Top"
+               FontSize="28"
+               FontFamily="/406VQAdaPoc;component/Assets/Fonts/#Shag Lounge"
                Content="KRAKATAU AQUA COASTER"
                Grid.Row="1" />
+        
         <TextBlock Grid.Row="1"
                    Foreground="White"
                    Margin="0,40,0,0"
-                   Width="480"
-                   Height="120"
-                   Padding="20"
+                   Width="500"
+                   Height="90"
+                   Padding="12"
+                   FontFamily="/406VQAdaPoc;component/Assets/Fonts/#Gotham Medium"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Text="{Binding SelectedAttraction.Script}">
+            <TextBlock.Effect>
+                <DropShadowEffect Direction="0"
+                                  ShadowDepth="0"
+                                  Opacity="0.55"
+                                  BlurRadius="55"/>
+            </TextBlock.Effect>
             <TextBlock.Background>
                 <ImageBrush ImageSource="/406VQAdaPoc;component/Assets/Graphics/Full_Width_Button.png" />
             </TextBlock.Background>
@@ -52,6 +61,8 @@
         <Label Content="Your return time is:"
                Grid.Row="3"
                FontSize="16"
+               Foreground="#FF189B88"
+               Padding="0,0,0,10"
                VerticalAlignment="Top" />
         <Label Content="{Binding SelectedAttraction.ReturnTime}"
                ContentStringFormat="{}{0} minutes"

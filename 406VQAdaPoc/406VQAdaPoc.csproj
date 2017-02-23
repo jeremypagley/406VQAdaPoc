@@ -126,6 +126,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\Fonts\Neapolitan-SkranjiPro.otf" />
+    <Resource Include="Assets\Fonts\Shag-Lounge.otf" />
+    <Resource Include="Assets\Fonts\Skranji-Regular.otf" />
+    <Resource Include="Assets\Fonts\Gotham-Medium.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -155,6 +159,7 @@
   <ItemGroup>
     <Resource Include="Assets\Graphics\Full_Width_Button.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
