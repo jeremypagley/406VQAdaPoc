@@ -44,12 +44,13 @@ namespace _406VQAdaPoc.ViewModel
 
         public MainViewModel()
         {
-            // Set a default current View/ViewModel
-            CurrentViewModel = MainViewModel._krakatuaViewModel;
-
             // Bound view switching commands from views
             KrakatuaViewCommand = new RelayCommand(() => ExecuteKrakatuaViewCommand());
             HonuViewCommand = new RelayCommand(() => ExecuteHonuViewCommand());
+
+            // Set a default current View/ViewModel and hydrate the view model
+            CurrentViewModel = MainViewModel._krakatuaViewModel;
+            ExecuteKrakatuaViewCommand();
         }
 
         private void ExecuteKrakatuaViewCommand()

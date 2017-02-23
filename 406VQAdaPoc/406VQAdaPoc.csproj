@@ -149,6 +149,12 @@
     <Resource Include="Assets\Graphics\logo_honu.png" />
     <Resource Include="Assets\Graphics\logo_krakatau.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Graphics\Select_Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Graphics\Full_Width_Button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
