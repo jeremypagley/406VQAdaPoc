@@ -123,4 +123,10 @@
   <data name="Krakatau" xml:space="preserve">
     <value>krakatau</value>
   </data>
+  <data name="MainButtonText" xml:space="preserve">
+    <value>Honu</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>sdfsdfs</value>
+  </data>
 </root>

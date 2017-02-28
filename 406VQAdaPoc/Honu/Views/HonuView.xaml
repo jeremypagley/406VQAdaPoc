@@ -4,8 +4,70 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="593">
     <Grid>
-        <Label Content="Honud View" FontSize="30" />
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="/406VQAdaPoc;component/Assets/Fonts/#Skranji" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="{x:Type Image}">
+                <Setter Property="Opacity" Value="0.8" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="230" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Image Height="115"
+               Width="220"
+               Grid.Row="0"
+               Margin="0,-20,0,0"
+               Stretch="Fill"
+               VerticalAlignment="Top" 
+               Source="/406VQAdaPoc;component/Assets/Graphics/logo_honu.png" />
+
+        <Label VerticalAlignment="Top"
+               FontSize="28"
+               FontFamily="/406VQAdaPoc;component/Assets/Fonts/#Shag Lounge"
+               Content="HONU"
+               Grid.Row="1" />
+
+        <TextBlock Grid.Row="1"
+                   Foreground="White"
+                   Margin="0,40,0,0"
+                   Width="500"
+                   Height="90"
+                   Padding="12"
+                   FontFamily="/406VQAdaPoc;component/Assets/Fonts/#Gotham Medium"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="{Binding SelectedAttraction.Script}">
+            <TextBlock.Effect>
+                <DropShadowEffect Direction="0"
+                                  ShadowDepth="0"
+                                  Opacity="0.55"
+                                  BlurRadius="55"/>
+            </TextBlock.Effect>
+            <TextBlock.Background>
+                <ImageBrush ImageSource="/406VQAdaPoc;component/Assets/Graphics/Full_Width_Button.png" />
+            </TextBlock.Background>
+        </TextBlock>
+
+        <Label Content="Your return time is:"
+               Grid.Row="3"
+               FontSize="16"
+               Foreground="#FF189B88"
+               Padding="0,0,0,10"
+               VerticalAlignment="Top" />
+        <Label Content="{Binding SelectedAttraction.ReturnTime}"
+               ContentStringFormat="{}{0} minutes"
+               Grid.Row="3"
+               FontSize="54"
+               VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>

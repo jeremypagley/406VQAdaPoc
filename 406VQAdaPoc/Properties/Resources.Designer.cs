@@ -22,7 +22,7 @@ namespace _406VQAdaPoc.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace _406VQAdaPoc.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("_406VQAdaPoc.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace _406VQAdaPoc.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace _406VQAdaPoc.Properties {
         /// <summary>
         ///   Looks up a localized string similar to honu.
         /// </summary>
-        internal static string Honu {
+        public static string Honu {
             get {
                 return ResourceManager.GetString("Honu", resourceCulture);
             }
@@ -72,9 +72,27 @@ namespace _406VQAdaPoc.Properties {
         /// <summary>
         ///   Looks up a localized string similar to krakatau.
         /// </summary>
-        internal static string Krakatau {
+        public static string Krakatau {
             get {
                 return ResourceManager.GetString("Krakatau", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Honu.
+        /// </summary>
+        public static string MainButtonText {
+            get {
+                return ResourceManager.GetString("MainButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sdfsdfs.
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }
